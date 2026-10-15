@@ -13,7 +13,6 @@ const ClearErrorPage = () => {
     const handleChange = (field: string, value: string) => {
         setForm({ ...form, [field]: value });
 
-        // 🔥 Очищення помилки конкретного поля
         setErrors((prev) => {
             const copy = { ...prev };
             delete copy[field];
@@ -21,7 +20,7 @@ const ClearErrorPage = () => {
         });
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = (e: React.SubmitEvent) => {
         e.preventDefault();
 
         const result = schema.safeParse(form);
